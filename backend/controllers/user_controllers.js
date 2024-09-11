@@ -1,7 +1,7 @@
 const { User }= require('../models');
 const  validateUser  = require('../validators/user_validator');
 
-class user_controllers{
+class UserControllers{
 static async signup (req, reply)  {
   
   try {
@@ -31,4 +31,4 @@ static async login (req, reply)  {
 };
 };
 
-module.exports = user_controllers;
+module.exports = UserControllers;

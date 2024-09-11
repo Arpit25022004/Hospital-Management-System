@@ -2,7 +2,7 @@ const { Patient } = require('../models');
 const patient_presenter = require('../presenters/patient_presenter');
 const  validatePatient  = require('../validators/patient_validator');
 
-class patient_controller{
+class PatientController{
   
 static async createPatient (req, res) {
   try {
@@ -63,4 +63,4 @@ static async deletePatient (req, res) {
 };
 };
 
-module.exports=patient_controller;
+module.exports=PatientController;

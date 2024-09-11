@@ -2,7 +2,7 @@ const { appointments } = require('../models');
 const appointments_presenter = require('../presenters/appointments_presenter');
 const validateAppointment = require('../validators/appointments_validator');
 
-class appointments_controller{
+class AappointmentsController{
 static async createAppointment(req, res) {
   try {
     const { error } = validateAppointment.validate(req.body);
@@ -90,4 +90,4 @@ static async deleteAppointment (req, res)  {
   }
 };
 };
-module.exports=appointments_controller;
+module.exports=AappointmentsController;

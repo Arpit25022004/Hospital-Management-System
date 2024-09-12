@@ -19,7 +19,7 @@
       </ul>
     </div>
     
-    <button class="btn back-btn" @click="$router.go(-1)">Back</button>
+    <button class="btn back-btn" @click="$router.push('/home')">Back</button>
   </div>
 </template>
 

@@ -11,7 +11,7 @@
           <router-link to="/appointmentslist" class="navbar-item">Appointments</router-link>
         </div>
         <div class="navbar-end">
-          <router-link to="/" class="navbar-item">Logout</router-link>
+          <router-link to="/" class="navbar-item" @click="logout()">Logout</router-link>
 
         </div>
       </div>
@@ -20,7 +20,12 @@
   
   <script>
   export default {
-    name: 'NavBar'
+    name: 'NavBar',
+    methods:{
+      logout(){
+        localStorage.removeItem('jwt');
+      }
+    }
   };
   </script>
   

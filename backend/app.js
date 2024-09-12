@@ -1,11 +1,15 @@
 const Fastify = require('fastify');
 const fastify = Fastify({ logger: true });
 const cors = require('@fastify/cors');
-
+const fastifyJwt=require('@fastify/jwt');
 
 // Enable CORS
 fastify.register(cors, {
   origin: 'http://localhost:8080', // Adjust according to your needs
+});
+
+fastify.register(fastifyJwt,{
+  secret: 'i am arpit',
 });
 
 // Import routes

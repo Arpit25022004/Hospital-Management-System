@@ -31,8 +31,10 @@ export default {
 
     const handleSubmit = async () => {
       try {
-        await login(username.value, password.value);
-        localStorage.setItem('authenticated', 'true');
+        const payload={username: username.value, password: password.value};
+        console.log('PAYLOAD:',payload);
+        const state=await login(payload);
+        console.log(state);
         window.location.href = '/home'; // Redirect to home page
       } catch (err) {
         error.value = 'Login failed. Please check your username and password.';

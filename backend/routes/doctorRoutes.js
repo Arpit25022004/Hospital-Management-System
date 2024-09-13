@@ -1,4 +1,4 @@
-const doctorController = require('../controllers/doctor_controller');
+const doctorController = require('../controllers/doctorController');
 const authenticate=require('../middleware/authenticate');
 
 async function doctorRoutes(fastify, options) {

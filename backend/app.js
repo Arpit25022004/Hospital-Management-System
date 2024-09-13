@@ -15,10 +15,10 @@ fastify.register(fastifyJwt,{
 
 
 // Import routes
-const appointmentRoutes = require('./routes/appointments_routes');
-const doctorRoutes = require('./routes/doctor_routes');
-const patientRoutes = require('./routes/patient_routes');
-const userRoutes = require('./routes/user_routes');
+const appointmentRoutes = require('./routes/appointmentsRoutes');
+const doctorRoutes = require('./routes/doctorRoutes');
+const patientRoutes = require('./routes/patientRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 // Register routes
 fastify.register(appointmentRoutes);

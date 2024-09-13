@@ -1,6 +1,6 @@
 const { doctor } = require('../models');
-const doctor_presenter = require('../presenters/doctor_presenter');
-const  validateDoctor  = require('../validators/doctor_validator');
+const doctor_presenter = require('../presenters/doctorPresenter');
+const  validateDoctor  = require('../validators/doctorValidator');
 
 class DoctorController{
 static async createDoctor(req, res){

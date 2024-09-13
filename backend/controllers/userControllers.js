@@ -1,5 +1,5 @@
 const { User }= require('../models');
-const  validateUser  = require('../validators/user_validator');
+const  validateUser  = require('../validators/userValidator');
 const jwt=require('jsonwebtoken');
 class UserControllers{
 static async signup (req, reply)  {

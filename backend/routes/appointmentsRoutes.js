@@ -1,4 +1,4 @@
-const appointmentController = require('../controllers/appointments_controller');
+const appointmentController = require('../controllers/appointmentsController');
 const authenticate=require('../middleware/authenticate');
 
 async function appointmentRoutes(fastify, options) {

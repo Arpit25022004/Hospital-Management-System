@@ -1,5 +1,5 @@
 // routes/user.routes.js
-const auth = require('../controllers/user_controllers');
+const auth = require('../controllers/userControllers');
 
 async function userRoutes(fastify,options) {
   fastify.post('/signup', auth.signup);

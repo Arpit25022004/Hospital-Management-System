@@ -1,6 +1,6 @@
 const { Patient } = require('../models');
-const patient_presenter = require('../presenters/patient_presenter');
-const  validatePatient  = require('../validators/patient_validator');
+const patient_presenter = require('../presenters/patientPresenter');
+const  validatePatient  = require('../validators/patientValidator');
 
 class PatientController{
   

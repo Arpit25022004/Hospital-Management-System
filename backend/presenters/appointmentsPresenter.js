@@ -1,5 +1,5 @@
-const doctorPresenter = require('./doctor_presenter');
-const patientPresenter = require('./patient_presenter');
+const doctorPresenter = require('./doctorPresenter');
+const patientPresenter = require('./patientPresenter');
 
 class AppointmentPresenter {
   static async formatAppointment(appointment, doctor = null, patient = null) {

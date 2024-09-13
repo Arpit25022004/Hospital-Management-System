@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const validateIds = require('./validate_id'); // Import the custom validation function
+const validateIds = require('./validateId'); // Import the custom validation function
 
 class AppointmentValidator {
   constructor() {

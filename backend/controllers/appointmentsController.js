@@ -1,6 +1,6 @@
 const { appointments } = require('../models');
-const appointments_presenter = require('../presenters/appointments_presenter');
-const validateAppointment = require('../validators/appointments_validator');
+const appointmentsPresenter = require('../presenters/appointmentsPresenter');
+const validateAppointment = require('../validators/appointmentsValidator');
 
 class AappointmentsController{
 static async createAppointment(req, res) {
@@ -14,7 +14,7 @@ static async createAppointment(req, res) {
     const doctor = await newAppointment.getDoctor();
     const patient = await newAppointment.getPatient();
     
-    const formattedAppointment = await appointments_presenter.formatAppointment(newAppointment, doctor, patient);
+    const formattedAppointment = await appointmentsPresenter.formatAppointment(newAppointment, doctor, patient);
     res.status(201).send(formattedAppointment);
   } catch (err) {
     res.status(500).send(err.message);
@@ -31,7 +31,7 @@ static async getAllAppointments (req, res) {
       allAppointments.map(async (appointment) => {
         const doctor = await appointment.getDoctor();
         const patient = await appointment.getPatient();
-        return appointments_presenter.formatAppointment(appointment, doctor, patient);
+        return appointmentsPresenter.formatAppointment(appointment, doctor, patient);
       })
     );
     
@@ -50,7 +50,7 @@ static async getAppointmentById(req, res) {
 
     const doctor = await appointment.getDoctor();
     const patient = await appointment.getPatient();
-    const formattedAppointment = await appointments_presenter.formatAppointment(appointment, doctor, patient);
+    const formattedAppointment = await appointmentsPresenter.formatAppointment(appointment, doctor, patient);
 
     res.status(200).send(formattedAppointment);
   } catch (err) {
@@ -70,7 +70,7 @@ static async updateAppointment (req, res)  {
 
     const doctor = await appointment.getDoctor();
     const patient = await appointment.getPatient();
-    const formattedAppointment = await appointments_presenter.formatAppointment(appointment, doctor, patient);
+    const formattedAppointment = await appointmentsPresenter.formatAppointment(appointment, doctor, patient);
 
     res.status(200).send(formattedAppointment);
   } catch (err) {

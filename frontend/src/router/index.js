@@ -19,21 +19,21 @@ import WelcomePage from '../components/WelcomePage.vue';
 
 const routes = [
   { path: '/', component:WelcomePage},
-  { path: '/home', component: HomeComp },
+  { path: '/home', component: HomeComp,meta: { requiresAuth: true } },
   { path: '/login', component: LoginPage },
   { path: '/signup', component: SignupPage },
-  { path: '/appointments', component: CreateAppointment },
-  { path: '/doctors', component: CreateDoctor },
-  { path: '/doctorslist', component: ListDoctors },
-  { path: '/doctors/:id', component: ViewDoctor },
-  { path: '/edit-doctor/:id?', component: EditDoctor },
-  { path: '/patientslist', component: ListPatients},
-  { path: '/patients/:id', component: ViewPatient },
-  { path: '/edit-patient/:id?', component: EditPatient },
-  { path: '/patients', component: CreatePatient },
-  { path: '/appointmentslist', component: ListAppointment },
-  { path: '/appointment/:id', component: ViewAppointment },
-  { path: '/edit-appointment/:id?', component: EditAppointment }
+  { path: '/appointments', component: CreateAppointment,meta: { requiresAuth: true } },
+  { path: '/doctors', component: CreateDoctor ,meta: { requiresAuth: true }},
+  { path: '/doctorslist', component: ListDoctors ,meta: { requiresAuth: true }},
+  { path: '/doctors/:id', component: ViewDoctor ,meta: { requiresAuth: true }},
+  { path: '/edit-doctor/:id?', component: EditDoctor ,meta: { requiresAuth: true }},
+  { path: '/patientslist', component: ListPatients,meta: { requiresAuth: true }},
+  { path: '/patients/:id', component: ViewPatient ,meta: { requiresAuth: true }},
+  { path: '/edit-patient/:id?', component: EditPatient ,meta: { requiresAuth: true }},
+  { path: '/patients', component: CreatePatient ,meta: { requiresAuth: true }},
+  { path: '/appointmentslist', component: ListAppointment ,meta: { requiresAuth: true }},
+  { path: '/appointment/:id', component: ViewAppointment ,meta: { requiresAuth: true }},
+  { path: '/edit-appointment/:id?', component: EditAppointment ,meta: { requiresAuth: true }}
 ];
 
 const router = createRouter({

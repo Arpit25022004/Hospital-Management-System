@@ -1,11 +1,12 @@
 const doctorController = require('../controllers/doctor_controller');
+const authenticate=require('../middleware/authenticate');
 
 async function doctorRoutes(fastify, options) {
-  fastify.post('/doctors', doctorController.createDoctor);
-  fastify.get('/doctors/list', doctorController.getAllDoctors);
-  fastify.get('/doctors/:id', doctorController.getDoctorById);
-  fastify.put('/doctors/:id', doctorController.updateDoctor);
-  fastify.delete('/doctors/:id', doctorController.deleteDoctor);
+  fastify.post('/doctors', { preHandler: authenticate.protectRoute }, doctorController.createDoctor);
+  fastify.get('/doctors/list',  { preHandler: authenticate.protectRoute },doctorController.getAllDoctors);
+  fastify.get('/doctors/:id', { preHandler: authenticate.protectRoute }, doctorController.getDoctorById);
+  fastify.put('/doctors/:id', { preHandler: authenticate.protectRoute }, doctorController.updateDoctor);
+  fastify.delete('/doctors/:id',  { preHandler: authenticate.protectRoute },doctorController.deleteDoctor);
 }
 
 module.exports = doctorRoutes;

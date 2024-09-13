@@ -12,6 +12,8 @@ fastify.register(fastifyJwt,{
   secret: 'i am arpit',
 });
 
+
+
 // Import routes
 const appointmentRoutes = require('./routes/appointments_routes');
 const doctorRoutes = require('./routes/doctor_routes');

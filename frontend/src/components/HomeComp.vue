@@ -1,5 +1,5 @@
 <template>
-  <div class="home" v-if ="isAuthenticated()">
+  <div class="home" >
     <NavBar />
     <main>
       <div class="content">
@@ -21,12 +21,6 @@ export default {
   name: 'HomeComp',
   components: {
     NavBar
-  },
-  methods:{
-    isAuthenticated(){
-      const token = localStorage.getItem('jwt');
-      return token !== null;
-    }
   }
 };
 </script>

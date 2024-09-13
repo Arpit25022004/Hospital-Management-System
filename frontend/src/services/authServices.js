@@ -1,19 +1,16 @@
-import axios from 'axios';
+import api from './api';
 
 const API_URL = 'http://localhost:3000';
 
 export const signup = async(data) => {
-  return axios.post(`${API_URL}/signup`,data);
+  return api.post(`${API_URL}/signup`,data);
 };
 export const login = async(data) => {
-  const response=await axios.post(`${API_URL}/login`,data);
-  console.log("response:",response);
+  const response=await api.post(`${API_URL}/login`,data);
   if(response.status!=200){
     throw new Error('login failed');
   }
-  console.log("hello")
   const info =response.data.token
-  console.log(info);
-  localStorage.setItem('jwt',info.token);
-  console.log(localStorage);
+  localStorage.setItem('jwt',info);
+  return response;
 };

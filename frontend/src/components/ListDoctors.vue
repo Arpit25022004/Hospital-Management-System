@@ -1,8 +1,17 @@
 <template>
   <div class="doctors-container">
     <h1 class="title">Doctors</h1>
-
+    <div class="doctor-act">
     <button class="btn create-doctor" @click="createDoctor">Create Doctor</button>
+    <button class="btn create-doctor" @click="triggerFileInput">Bulk Upload</button>
+    </div>
+    <input
+      type="file"
+      ref="fileInput"
+      style="display: none;"
+      @change="handleFileChange"
+      accept=".xlsx"
+    />
     
     <div class="doctors-list-container">
       <ul class="doctors-list">
@@ -28,6 +37,7 @@
 
 <script>
 import { getAllDoctors, deleteDoctor } from '../services/doctorService';
+import { bulkUpload } from '../services/bulkservice';
 
 export default {
   name: 'ListDoctors',
@@ -45,6 +55,22 @@ export default {
     }
   },
   methods: {
+    triggerFileInput() {
+      this.$refs.fileInput.click(); // Trigger the hidden file input
+    },
+    async handleFileChange(event) {
+      const file = event.target.files[0];
+      if (file) {
+        try {
+          // Implement the file upload logic here
+          // For example, you might call your bulkUpload service with the file
+          await bulkUpload(file);
+          alert('File uploaded successfully');
+        } catch (error) {
+          console.error('Failed to upload file:', error);
+        }
+      }
+    },
     createDoctor() {
       this.$router.push('/doctors');
     },
@@ -145,6 +171,13 @@ export default {
 .doctor-actions {
   display: flex;
   gap: 10px;
+}
+.doctor-act{
+  display:flex;
+  gap:10px;
+  align-items: center;
+  justify-content: center; 
+  
 }
 
 .view-btn {

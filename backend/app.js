@@ -2,11 +2,14 @@ const Fastify = require('fastify');
 const fastify = Fastify({ logger: true });
 const cors = require('@fastify/cors');
 const fastifyJwt=require('@fastify/jwt');
+const multer=require('fastify-multer');
+
 
 // Enable CORS
 fastify.register(cors, {
   origin: 'http://localhost:8080', // Adjust according to your needs
 });
+fastify.register(multer.contentParser);
 
 fastify.register(fastifyJwt,{
   secret: 'i am arpit',
@@ -19,12 +22,14 @@ const appointmentRoutes = require('./routes/appointmentsRoutes');
 const doctorRoutes = require('./routes/doctorRoutes');
 const patientRoutes = require('./routes/patientRoutes');
 const userRoutes = require('./routes/userRoutes');
+const excelRoutes=require('./routes/excelRoute');
 
 // Register routes
 fastify.register(appointmentRoutes);
 fastify.register(doctorRoutes);
 fastify.register(patientRoutes);
 fastify.register(userRoutes);
+fastify.register(excelRoutes);
 
 // Error handling
 fastify.setErrorHandler((error, request, reply) => {

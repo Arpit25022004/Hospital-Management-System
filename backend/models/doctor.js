@@ -54,7 +54,7 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
     },
     name: DataTypes.STRING,
-    phone_no: DataTypes.INTEGER,
+    phone_no: DataTypes.BIGINT,
     specializations: DataTypes.STRING,
     status_free: {
       type: DataTypes.BOOLEAN,
